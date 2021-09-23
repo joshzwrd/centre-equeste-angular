@@ -1,0 +1,17 @@
+p{
+    padding: 40px;
+}
+
+.container{
+    text-align: center;
+    margin: 100px;
+}
+
+.container button{
+    width: 300px;
+}
+
+.size-image{
+    width: 500px;
+}
+

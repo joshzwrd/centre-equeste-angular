@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <h1 style="text-align: center; margin: 50px 0;">Tout nos chevaux</h1>
+
+        <table class="table table-hover table-dark" style="text-align: center;">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Couleur</th>
+                <th scope="col">Disponibilité</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor= " let horse of horseList">
+                <th scope="row"><span class="orange">{{ horse.id }}</span></th>
+                <td>{{ horse.name }}</td>
+                <td>{{ horse.color }}</td>
+                <td>
+                    <span *ngIf="horse.isAvailable">Disponible</span>
+                    <span class="orange" *ngIf="!horse.isAvailable">Indisponible</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.nav-content
+{
+    display: flex;
+}
+
+.nav-content nav{
+    width: 90%;
+    padding-left: 10px;
+}
+
+.nav-content h1
+{
+    margin-top: 10px;
+}
+
+.nav-content nav ul li a{
+    transition: all 0.4s ease-in 0s;
+}
+
+.nav-content nav ul li a:hover{
+    background: white;
+    color: black;
+}
