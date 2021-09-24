@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserLoginService } from '../pages/user-login/user-login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+    userAuth?: any;
+
+  constructor(private userLoginService: UserLoginService) { }
 
   ngOnInit(): void {
-  }
+    this.userLoginService.userAuthEvent.subscribe(() => {
+        this.userAuth = this.userLoginService.getUser();
+        console.log(this.userLoginService.getUser());
+    });
+}
 
 }

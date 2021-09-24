@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HorseService } from 'src/app/horse.service';
-import { IHorse } from 'src/app/IHorse';
-import { HORSES } from 'src/app/mock-horse';
+import { HorseService } from 'src/app/pages/horses/horse.service';
+import { IHorse } from 'src/app/pages/horses/IHorse';
+import { HORSES } from 'src/app/pages/horses/mock-horse';
 
 @Component({
   selector: 'app-horses',
