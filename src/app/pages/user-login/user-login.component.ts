@@ -16,7 +16,6 @@ export class UserLoginComponent implements OnInit {
   constructor(private router:Router, private userLoginService:UserLoginService) { }
 
   ngOnInit(): void {
-      this.tryLogin();
   }
 
 

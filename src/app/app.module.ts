@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule} from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +9,8 @@ import { HorsesComponent } from './pages/horses/horses.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
+import { NewHorseComponent } from './pages/new-horse/new-horse.component';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +19,13 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
     HorsesComponent,
     ContactComponent,
     NavbarComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    NewHorseComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

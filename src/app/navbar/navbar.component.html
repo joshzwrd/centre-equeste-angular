@@ -8,6 +8,15 @@
         <li class="nav-item">
             <a class="nav-link" routerLink="horses">Horses</a>
         </li>
+        <li *ngIf= "!userAuth" class="nav-item">
+            <a class="nav-link" routerLink="login"><span class="fas fa-lock"></span> New Horse</a>
+        </li>
+        <li *ngIf= "userAuth" class="nav-item">
+            <a class="nav-link" routerLink="addHorse">New Horse</a>
+        </li>
+        <!-- <li class="nav-item">
+            <a class="nav-link" routerLink="addHorse">New Horse Test</a>
+        </li> -->
         <li class="nav-item">
             <a class="nav-link" routerLink="contact">Contact</a>
         </li>
@@ -38,7 +47,7 @@
 </nav>
 
 <div class="bg-dark navbar-dark">
-    <h1 class="navbar-brand centre-questre">Centre Equestre Angu-<span class="orange">Lar</span></h1>
+    <h1 class="navbar-brand centre-questre">Centre Equestre <span class="fas fa-horse-head"></span> Angu-<span class="orange">Lar  </span> </h1>
 </div>
 
 </div>
