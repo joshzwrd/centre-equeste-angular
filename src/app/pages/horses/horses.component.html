@@ -11,19 +11,69 @@
                 <th scope="col">Nom</th>
                 <th scope="col">Couleur</th>
                 <th scope="col">Disponibilité</th>
+                <th *ngIf= "userAuth" scope="col">Editer</th>
               </tr>
             </thead>
-            <tbody>
-              <tr  *ngFor= " let horse of horseList">
+            <tbody *ngFor= " let horse of horseList">
+              <tr  >
                 <th scope="row"><span class="orange">{{ horse.id }}</span></th>
                 <td>{{ horse.name }}</td>
                 <td>{{ horse.color }}</td>
                 <td>
-                    <span *ngIf="horse.isAvailable">Disponible</span>
-                    <span class="orange" *ngIf="!horse.isAvailable">Indisponible</span>
+                    <span *ngIf="horse.is_available">Disponible</span>
+                    <span class="orange" *ngIf="!horse.is_available">Indisponible</span>
+                </td>
+                <td *ngIf= "userAuth" >
+                <button class="btn btn-success">
+                        Modifier
+                    </button>
+                    |
+                    <button (click)="deleteHorse(horse.id)" class="btn btn-danger">
+                        Supprimer
+                    </button>
                 </td>
               </tr>
             </tbody>
           </table>
     </div>
 </div>
+
+<!-- <div class="container">
+    <div class="container-content row">
+
+        <h1 style="text-align: center; margin: 50px 0;"><i class="fas fa-horse-head" style="color: #d82c2e;"></i> Mettre à jour une monture</h1>
+
+        <div>
+            <div class="add-content form-group row mb-2" >
+                <label for="name" class="col-sm-2 col-form-label">Id</label>
+
+                <div class="col-sm-10">
+                  <input [(ngModel)]="inputId" class="form-control" placeholder="Entrer un ID">
+                </div>
+              </div>
+
+            <div class="add-content form-group row mb-2" >
+              <label for="name" class="col-sm-2 col-form-label">Nom</label>
+
+              <div class="col-sm-10">
+                <input [(ngModel)]="inputName" class="form-control" placeholder="Entrer un nom">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="color" class="col-sm-2 col-form-label">Couleur</label>
+
+              <div class="col-sm-10">
+                <input [(ngModel)]="inputColor" type="text" class="form-control mb-4" placeholder="Entrer une couleur">
+
+                <button (click)= "updateHorse()" class="btn btn-primary">Modifier</button>
+                <br><br>
+                //<span *ngIf="notif" style="color: green;">La nouvelle monture a bien été ajouté</span> 
+              </div>
+              </div>
+
+
+          </div>
+    </div>
+</div> -->
+

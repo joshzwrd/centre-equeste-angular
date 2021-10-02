@@ -1,6 +1,7 @@
 import { ILogin } from './ILogin';
 import { USERS } from './mock-user-login';
 import {EventEmitter, Injectable} from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,12 @@ export class UserLoginService {
     userAuthEvent: any= new EventEmitter();
 
 
-  constructor() {}
+  constructor(private cookieService: CookieService) {
+
+    if(cookieService.check('user')) {
+        this.userAuth = JSON.parse(cookieService.get('user'));
+    }
+  }
 
   getUser(){
     return this.userAuth;
@@ -25,6 +31,8 @@ export class UserLoginService {
             this.userAuth = currentUser;
             console.log(currentUser)
             this.userAuthEvent.emit(null);
+
+            this.cookieService.set('user', JSON.stringify(this.userAuth));
             isChecked = true;
         }
     });

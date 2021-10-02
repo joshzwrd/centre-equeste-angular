@@ -27,19 +27,7 @@ export class NewHorseComponent implements OnInit {
   }
 
   addHorse(){
-
-    const targetNewId = this.horseList.length > 0 ? this.horseList[this.horseList.length - 1].id + 1 : 0;
-
-    if(this.inputName === '' && this.inputColor === ''){
-      return;
-    }
-
-    this.horseList.push({
-      id : targetNewId,
-      name : this.inputName,
-      color : this.inputColor,
-      isAvailable : true,
-    });
+      this.HorseService.addHorse(this.inputName, this.inputColor).subscribe();
 
     this.inputName = '';
     this.inputColor = '';
@@ -47,7 +35,26 @@ export class NewHorseComponent implements OnInit {
     this.notif = true;
 
 
-
   }
+//   addHorse(){
+
+//     const targetNewId = this.horseList.length > 0 ? this.horseList[this.horseList.length - 1].id + 1 : 0;
+
+//     if(this.inputName === '' && this.inputColor === ''){
+//       return;
+//     }
+
+//     this.horseList.push({
+//       id : targetNewId,
+//       name : this.inputName,
+//       color : this.inputColor,
+//       isAvailable : true,
+//     });
+
+//     this.inputName = '';
+//     this.inputColor = '';
+
+//     this.notif = true;
+//   }
 
 }

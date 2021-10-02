@@ -13,7 +13,10 @@ export class NavbarComponent implements OnInit {
   constructor(private userLoginService: UserLoginService) { }
 
   ngOnInit(): void {
-    this.userLoginService.userAuthEvent.subscribe(() => {
+      if(this.userLoginService.userAuth){
+          this.userAuth = this.userLoginService.userAuth;
+      }
+   this.userLoginService.userAuthEvent.subscribe(() => {
         this.userAuth = this.userLoginService.getUser();
         console.log(this.userLoginService.getUser());
     });

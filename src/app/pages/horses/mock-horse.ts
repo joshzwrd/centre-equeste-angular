@@ -4,16 +4,16 @@ export const HORSES: Array<IHorse> = [{
   id : 0,
   name: 'Ina',
   color: 'Black',
-  isAvailable: false,
+  is_available: false,
 
 }, {
   id : 1,
   name: 'Jakarta',
   color: 'White',
-  isAvailable: true,
+  is_available: true,
 }, {
     id : 2,
     name: 'Joao',
     color: 'Lavender',
-    isAvailable: true,
+    is_available: true,
 }]

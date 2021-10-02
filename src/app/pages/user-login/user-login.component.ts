@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { UserLoginService } from './user-login.service';
 
 @Component({
@@ -13,7 +14,9 @@ export class UserLoginComponent implements OnInit {
     inputPassword = '';
     badAuth: boolean = false;
 
-  constructor(private router:Router, private userLoginService:UserLoginService) { }
+  constructor(private router:Router, private userLoginService:UserLoginService, private cookieServive: CookieService) {
+
+  }
 
   ngOnInit(): void {
   }
@@ -27,4 +30,5 @@ export class UserLoginComponent implements OnInit {
         this.badAuth = true;
     }
 }
+
 }
