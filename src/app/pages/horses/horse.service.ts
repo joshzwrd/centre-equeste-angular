@@ -37,5 +37,15 @@ export class HorseService {
       return this.http.delete(`http://localhost:8000/api/horses/${id}`);
   }
 
+  updateHorse(id: number, inputName: string, inputColor: string, radioAvailable: boolean){
+    return this.http.put(`http://localhost:8000/api/horses/${id}`,{
+        name : inputName,
+        color : inputColor,
+        isAvailable : radioAvailable
+      } );
+}
+
+
+
 
 }

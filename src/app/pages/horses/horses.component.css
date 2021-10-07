@@ -9,3 +9,11 @@ table th {
 table td {
     margin: 3px;
 } */
+
+.form-check{
+    display: inline-block;
+}
+
+.form-check input{
+    min-width: 50px;
+}

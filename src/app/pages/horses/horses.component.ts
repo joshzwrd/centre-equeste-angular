@@ -14,9 +14,13 @@ export class HorsesComponent implements OnInit {
     horseList: Array<IHorse> = [];
     userAuth?: any;
 
-    inputId = "";
+    modify: boolean = false;
+
+
+    horseId:number = -1 ;
     inputName = "";
     inputColor = "";
+    radioAvailable:boolean = false;
 
   constructor(private horseService:HorseService, private userLoginService: UserLoginService) {}
 
@@ -34,7 +38,12 @@ export class HorsesComponent implements OnInit {
   }
 
   getHorseList(){
-      this.horseService.getHorses().subscribe(horses => this.horseList = horses);
+      this.horseService.getHorses().subscribe(horses => {
+        this.horseList = horses;
+
+        console.log(this.horseList);
+      });
+
   }
 
   deleteHorse(id: number){
@@ -44,9 +53,32 @@ export class HorsesComponent implements OnInit {
 
 }
 
+getUpdate(horse:IHorse){
+    this.horseId = horse.id
+    this.inputName = horse.name;
+    this.inputColor = horse.color;
+    // this.radioAvailable = horse.is_available;
+    if(horse.is_available){
+        this.radioAvailable = true;
+    }else{
+        this.radioAvailable = false;
+    }
+
+    this.modify = true;
+}
+
+
 updateHorse(){
+    this.horseService.updateHorse(this.horseId, this.inputName, this.inputColor, this.radioAvailable).subscribe(() =>{
+
+        this.getHorseList();
+        this.modify = false;
+    });
 
 }
+
+
+
 
 
 }
