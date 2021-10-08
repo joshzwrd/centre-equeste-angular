@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HorseService } from '../horses/horse.service';
 import { IHorse } from '../horses/IHorse';
 
@@ -14,7 +15,7 @@ export class NewHorseComponent implements OnInit {
     inputColor =  '';
     notif: boolean = false;
 
-  constructor(private HorseService: HorseService) { }
+  constructor(private router:Router ,private HorseService: HorseService) { }
 
   ngOnInit(): void {
       this.getHorseList();
@@ -27,12 +28,13 @@ export class NewHorseComponent implements OnInit {
   }
 
   addHorse(){
-      this.HorseService.addHorse(this.inputName, this.inputColor).subscribe();
+    this.HorseService.addHorse(this.inputName, this.inputColor).subscribe(() =>{
+        // this.inputName = '';
+        // this.inputColor = '';
+        // this.notif = true;
+        this.router.navigate(['horses']);
+    });
 
-    this.inputName = '';
-    this.inputColor = '';
-
-    this.notif = true;
 
 
   }

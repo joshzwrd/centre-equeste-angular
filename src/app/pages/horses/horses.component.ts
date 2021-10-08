@@ -57,12 +57,12 @@ getUpdate(horse:IHorse){
     this.horseId = horse.id
     this.inputName = horse.name;
     this.inputColor = horse.color;
-    // this.radioAvailable = horse.is_available;
-    if(horse.is_available){
-        this.radioAvailable = true;
-    }else{
-        this.radioAvailable = false;
-    }
+    this.radioAvailable = horse.is_available;
+    // if(horse.is_available){
+    //     this.radioAvailable = true;
+    // }else{
+    //     this.radioAvailable = false;
+    // }
 
     this.modify = true;
 }
